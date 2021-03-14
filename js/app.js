@@ -44,6 +44,17 @@ class UI {
             divMensaje.remove();
         }, 1500);
     }
+
+    imprimirCitas({citas}){ // hacemos el destruction directamente desde los argumentos
+        
+        citas.forEach( cita => {
+            const { mascota, propietario, telefono, fecha, hora, sintomas, id } = cita;
+
+            const divCita = document.createElement('div');
+            divCita.classList.add('cita', 'p-3');
+            divCita.dataset.id = id;
+        });
+    }
 }
 
 const ui = new UI();
@@ -101,6 +112,9 @@ function nuevaCita(e){
 
     // reiniciar objeto
     reiniciarObj();
+
+    // Mostrar el HTML con las citas
+    ui.imprimirCitas(administrarCitas);
 
 }
 
